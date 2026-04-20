@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Profile | Kehnt Russel A. Bautista</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Portfolio</div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <a href="profile.html" class="nav-avatar" title="Your profile">
+                    <img id="navProfileImage" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%3E%3Ccircle%20cx='24'%20cy='24'%20r='22'%20fill='%23667eea'/%3E%3Ctext%20x='50%25'%20y='54%25'%20font-size='20'%20font-family='Segoe%20UI'%20fill='white'%20text-anchor='middle'%20dominant-baseline='middle'%3EKR%3C/text%3E%3C/svg%3E" alt="Profile avatar">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="profile" id="profile">
+        <h2>My Profile</h2>
+        <div class="profile-card">
+            <div class="profile-photo">
+                <img id="profilePreview" class="profile-preview" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='480'%20height='480'%20viewBox='0%200%20480%20480'%3E%3Crect%20width='480'%20height='480'%20rx='40'%20fill='%23e8ecf6'/%3E%3Ccircle%20cx='240'%20cy='180'%20r='110'%20fill='%23667eea'/%3E%3Crect%20x='120'%20y='320'%20width='240'%20height='70'%20rx='35'%20fill='%23667eea'/%3E%3C/svg%3E" alt="Profile preview">
+                <span>Upload a photo to instantly refresh both your profile card and the nav avatar.</span>
+                <div class="profile-upload">
+                    <label for="profileImageUpload">Choose your profile image</label>
+                    <input id="profileImageUpload" type="file" accept="image/*">
+                </div>
+            </div>
+            <div class="profile-details">
+                <h2>Kehnt Russel A. Bautista</h2>
+                <p>Welcome to my profile page. Here you can upload your image and preview it instantly in the profile card and the navigation avatar.</p>
+                <ul>
+                    <li>Web Design</li>
+                    <li>Front-end Development</li>
+                    <li>UI/UX</li>
+                    <li>Creative Coding</li>
+                </ul>
+                <p>Use the file selector to choose a photo from your device. Your selected image will appear above and in the nav profile badge.</p>
+                <button class="save-btn" id="saveProfileBtn">Save Profile</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const profileInput = document.getElementById('profileImageUpload');
+        const profilePreview = document.getElementById('profilePreview');
+        const navProfileImage = document.getElementById('navProfileImage');
+        const saveBtn = document.getElementById('saveProfileBtn');
+
+        profileInput.addEventListener('change', event => {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                profilePreview.src = reader.result;
+                navProfileImage.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        saveBtn.addEventListener('click', () => {
+            // Save profile data - this could save to localStorage, database, or perform other actions
+            const profileData = {
+                image: profilePreview.src,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('profileData', JSON.stringify(profileData));
+            
+            // Show feedback to user
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = 'Saved!';
+            saveBtn.style.background = 'linear-gradient(135deg, #27ae60 0%, #229954 100%)';
+            
+            setTimeout(() => {
+                saveBtn.textContent = originalText;
+                saveBtn.style.background = '';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
