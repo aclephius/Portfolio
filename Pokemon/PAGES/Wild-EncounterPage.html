@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wild Encounter</title>
+  <link rel="stylesheet" href="Style\Wild-EncounterPage.css">
+  <script src="JS\coins.js" defer></script>
+  <script src="JS\Wild-EncounterPage.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="logo">POKESTAR</div>
+      <div class="player-info">
+        <span data-player-name>Player: Trainer</span>
+        <span>Level: 0</span>
+      <span data-coins>Coins: 0</span>
+        <div class="avatar"></div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <main class="encounter-panel">
+        <section class="search-card" id="searchingState">
+          <div class="panel-head">
+            <button class="btn back-btn" onclick="history.back()">BACK</button>
+          </div>
+          <p class="area-title">Searching for wild Pokemon...</p>
+          <div class="status-line">
+            <span class="status-dot searching"></span>
+            <span class="status-text">Auto-searching...</span>
+          </div>
+          <p class="timer-text">Estimated encounter in <span id="timerCount">00:00</span></p>
+        </section>
+
+        <section id="spawnArea" class="hidden encounter-card">
+          <div class="panel-head panel-head-spawn">
+            <button class="btn back-btn" onclick="history.back()">BACK</button>
+          </div>
+          <div class="pokemon-left">
+            <h2 id="pokemonName"></h2>
+            <div id="rarity"></div>
+            <div id="pokemonSprite"></div>
+          </div>
+
+          <div class="pokemon-right">
+            <div id="pokemonStats"></div>
+            <div class="action-buttons">
+              <button class="battle-btn" onclick="goToBattle()">⚔️ BATTLE</button>
+              <button class="run-btn" onclick="runFromEncounter()">🏃 RUN</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="sidebar">
+        <button class="btn gold" onclick="window.location.href='ProfilePage.html'">PROFILE</button>
+        <button class="btn red" onclick="window.location.href='BattlePage.html'">BATTLE</button>
+        <button class="btn green" onclick="window.location.href='Wild-EncounterPage.html'">WILD ENCOUNTER</button>
+        <button class="btn cyan">CATCH GACHA</button>
+        <button class="btn orange">POKEMON</button>
+
+        <div class="bottom-buttons">
+          <button class="btn grey">SETTINGS</button>
+          <button class="btn logout" onclick="window.location.href='LoginPage.html'">LOGOUT</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>

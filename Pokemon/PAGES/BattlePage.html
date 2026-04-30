@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokestar - Battle</title>
+  <link rel="stylesheet" href="Style\BattlePage.css">
+  <script src="JS\coins.js" defer></script>
+  <script src="JS\index.js"></script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="logo">POKESTAR</div>
+  <div class="player-info">
+    <span data-player-name>Player: Trainer</span>
+    <span>Level: 0</span>
+    <span data-coins>Coins: 0</span>
+    <div class="avatar"></div>
+  </div>
+</header>
+
+<div class="battle-container">
+
+  <!-- ENEMY AREA -->
+  <div class="enemy-area">
+    <div class="enemy-info">
+      <div class="rarity" id="enemyRarity"></div>
+      <div class="name" id="enemyName">Wild Pokemon</div>
+      <div class="level" id="enemylvl">Lv. 5</div>
+      <div class="hp-bar">
+        <div class="hp-fill enemy" id="enemyHpFill"></div>
+      </div>
+    </div>
+    <div class="enemy-sprite" id="enemySprite"></div>
+  </div>
+
+  <!-- BATTLE FIELD -->
+  <div class="field">
+    VS
+  </div>
+
+  <!-- PLAYER AREA -->
+  <div class="player-area">
+    <div class="player-pokemon-sprite">⚔️</div>
+    <div class="player-info-box">
+      <div class="name">Your Pokemon</div>
+      <div class="level">Lv. 5</div>
+      <div class="hp-bar">
+        <div class="hp-fill player" id="playerHpFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION MENU -->
+  <div class="action-menu">
+    <button class="btn attack">⚔️ Attack</button>
+    <button class="btn bag">🎒 Bag</button>
+    <button class="btn pokemon">⚡ Pokemon</button>
+    <button class="btn run">🏃 Run</button>
+  </div>
